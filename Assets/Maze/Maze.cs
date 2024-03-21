@@ -58,15 +58,17 @@ public class Maze : MonoBehaviour
     public byte[,] map;
     public int scale = 6;
     GameObject wall;
+    public SpawnManager manager;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         InitialiseMap();
         Generate();
         DrawMap();
         GetComponent<NavMeshSurface>().BuildNavMesh();
-        //StartCoroutine(DelayedNavMeshBuild(1.0f));
+        StartCoroutine(manager.InstantiatingEnemy(5));
+        // StartCoroutine(DelayedNavMeshBuild(1.0f));
     }
 
     void InitialiseMap()
@@ -100,8 +102,6 @@ public class Maze : MonoBehaviour
                 
                 if (map[x, z] == 1)
                 {
-                    Debug.Log(x+" "+z);
-
                     Vector3 pos = new Vector3(x * scale, 0, z * scale);
                     
                     if (pos.x == 48 && pos.z == 144 || pos.x == 48 && pos.z == 138)
@@ -123,7 +123,14 @@ public class Maze : MonoBehaviour
                     wall.transform.position = pos;
                     
                     wall.transform.SetParent(mazeParent.transform);
-
+                }
+                else if(map[x,z]==0)
+                {
+                    if(Random.Range(0,100)<15)
+                    {
+                        manager.InstantiatingWaypoints(x,z);
+                    }
+   
                 }
                 
             }

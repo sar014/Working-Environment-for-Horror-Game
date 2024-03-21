@@ -3794,6 +3794,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c842ffb53ab45a84c96a9776b9f5be64, type: 3}
+--- !u!1 &724158954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 724158955}
+  m_Layer: 0
+  m_Name: EnemyCollection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &724158955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724158954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1739740867}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &735787194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10587,8 +10618,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1739740867}
   - component: {fileID: 1739740869}
-  - component: {fileID: 1739740868}
   - component: {fileID: 1739740870}
+  - component: {fileID: 1739740871}
   m_Layer: 0
   m_Name: Maze
   m_TagString: Untagged
@@ -10607,28 +10638,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 724158955}
   m_Father: {fileID: 1022403346}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1739740868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739740866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e8b49d9206c8384585aecc4807af3af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maze: {fileID: 1739740869}
-  closedMaterial: {fileID: 2100000, guid: a39ce23f4c7304a76aef66e35714e69b, type: 2}
-  openMaterial: {fileID: 2100000, guid: 8ab3124b7e8a34ca6bb2e831a9726475, type: 2}
-  start: {fileID: 302218380737281610, guid: ef44b7d2e6e35443aab13daf5583bd3e, type: 3}
-  end: {fileID: 6856673923357348324, guid: a05f88bb7457d4e59bd0ee0e79575ce1, type: 3}
-  pathP: {fileID: 4872082831671335508, guid: fbc327f82b9b646dca7e0960e120ec66, type: 3}
 --- !u!114 &1739740869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10645,6 +10659,7 @@ MonoBehaviour:
   depth: 25
   hasEntered: 0
   scale: 6
+  manager: {fileID: 1739740871}
 --- !u!114 &1739740870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10659,8 +10674,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
   m_CollectObjects: 1
-  m_Size: {x: 114.63696, y: 10, z: 155.05002}
-  m_Center: {x: 11.449646, y: 2, z: 99.584}
+  m_Size: {x: 114.63696, y: 10, z: 154.0468}
+  m_Center: {x: 11.449646, y: 2, z: 99.08289}
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 55
@@ -10675,6 +10690,24 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 8c0eb4c4eae7dfe4bb354789137fb1b9, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &1739740871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739740866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acad0ee317250eb468c5ec76adae9191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 1739740869}
+  enemyPrefab: {fileID: 7348941065408262895, guid: 05173a3c71f796f4aa1dfd6aa2f83a78, type: 3}
+  WayPointPrefab: {fileID: 2368969401623314168, guid: c7fb6d2fe5f86464fab7acfda250284c, type: 3}
+  mazeParent: {fileID: 1739740867}
+  enemyCollection: {fileID: 724158955}
+  waypointsList: []
 --- !u!1001 &1739876574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11291,7 +11324,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e7268e596932cb541834f57d320a4677, type: 2}
+  - {fileID: 2100000, guid: 15654a743eccf384fb2312048db767f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
