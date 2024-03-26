@@ -12,6 +12,7 @@ public class Sequence : Node
     // The below process is looping
     public override Status Process()
     {
+
         Status childstatus = children[currentChild].Process();
 
         //If the process is still running
