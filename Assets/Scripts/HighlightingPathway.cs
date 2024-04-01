@@ -67,7 +67,7 @@ public class HighlightingPathway : MonoBehaviour
     void VisualizePath(NavMeshPath path)
     {
         isFinding = true;
-        // Visualize the path by drawing lines between waypoints
+        //waypoints of the path are stored in waypoints array
         Vector3[] waypoints = path.corners;
         
         // sets the number of positions in a LineRenderer component equal to the number of waypoints in the path.
