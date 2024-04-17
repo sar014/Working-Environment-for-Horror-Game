@@ -10172,7 +10172,16 @@ PrefabInstance:
       propertyPath: turnOff
       value: 
       objectReference: {fileID: 106549932}
-    m_RemovedComponents: []
+    - target: {fileID: 4678546296304067174, guid: 5030745e01595a24d996516652628717, type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ae8d1df449ac0b4db934faf078e3eef, type: 3}
+    - target: {fileID: 4678546296304067174, guid: 5030745e01595a24d996516652628717, type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 1739876583, guid: 5030745e01595a24d996516652628717, type: 3}
+    m_RemovedComponents:
+    - {fileID: 1739876583, guid: 5030745e01595a24d996516652628717, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5030745e01595a24d996516652628717, type: 3}
 --- !u!1001 &1746377989
 PrefabInstance:
