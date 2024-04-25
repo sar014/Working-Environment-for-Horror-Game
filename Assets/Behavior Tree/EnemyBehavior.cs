@@ -125,7 +125,6 @@ public class EnemyBehavior : MonoBehaviour
     private void FieldOfViewCheck()
     {
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
-        Debug.Log("Number of colliders detected: " + rangeChecks.Length);
 
         if (rangeChecks.Length != 0)
         {

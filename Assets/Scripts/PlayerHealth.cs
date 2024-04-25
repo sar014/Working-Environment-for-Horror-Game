@@ -1,22 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public GameObject deathScreen;
-    public float health = 100f;
-    // Start is called before the first frame update
+    public int maxHealth = 100;
+    public int currentHealth = 100;
+    public GameObject deletePlayer;
+    bool isDead;
     void Start()
     {
-        deathScreen.SetActive(false);
+        
+        currentHealth = maxHealth;
+        Debug.Log("Start Health" + currentHealth);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    // Method to reduce player's health
+    public void TakeDamage(int damage)
     {
-        if(health<=0)
-        deathScreen.SetActive(true);
+        currentHealth -= damage;
+
+        // Check if health is zero or less
+        if (currentHealth <= 0)
+        {
+            isDead = true;
+
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            TakeDamage(10);
+        }
     }
 
 }

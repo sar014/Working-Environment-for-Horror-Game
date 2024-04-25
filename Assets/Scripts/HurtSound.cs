@@ -11,7 +11,6 @@ public class HurtSound : MonoBehaviour
     {
         if(other.gameObject.tag =="Player")
         {
-            Debug.Log("Playin for "+other.gameObject.tag);
             src.Play();
         }
     }
