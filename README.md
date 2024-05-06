@@ -8,7 +8,7 @@ To help the player navigate through the maze, a hint button is provided which hi
 
 This is my first large scale Unity Project. All the assets and materials have been taken from the Asset Store
 
-The highlighting of the pathway is done using Unity's built-in NavMesh library. In order to install it go to Windows -> Package Manager -> Search for Nav Mesh and install it.
+The highlighting of the pathway is done using Unity's built-in NavMesh library. In order to install it go to Windows -> Package Manager -> Search for AI Navigation and install it.
 
 The enemy programming is done using Behavior Tree concepts.
 
