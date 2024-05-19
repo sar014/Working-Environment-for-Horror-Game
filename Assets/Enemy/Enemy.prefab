@@ -135,8 +135,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5.06
-  m_Acceleration: 8
+  m_Speed: 6.19
+  m_Acceleration: 10.36
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -161,7 +161,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   src: {fileID: 7051007333634798775}
   sfx: {fileID: 8300000, guid: 2ae8d1df449ac0b4db934faf078e3eef, type: 3}
-  playerHealth: {fileID: 6587681569558777453, guid: a227d7dccf85860469e259fbaac5e294, type: 3}
 --- !u!82 &7051007333634798775
 AudioSource:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ TagManager:
   - marker
   - Entry
   - Enemy
+  - Floor
   layers:
   - Default
   - TransparentFX

@@ -7,15 +7,19 @@ using TMPro;
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
-    public int currentHealth = 100;
+    public int currentHealth;
     public GameObject deletePlayer;
+    public Image HealthBar;
     bool isDead;
     void Start()
     {
         
         currentHealth = maxHealth;
-        Debug.Log("Start Health" + currentHealth);
+    }
 
+    void Update()
+    {
+        HealthBar.fillAmount = (float)currentHealth/maxHealth;
     }
 
     // Method to reduce player's health
