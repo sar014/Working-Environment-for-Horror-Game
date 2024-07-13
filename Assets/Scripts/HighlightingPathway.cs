@@ -32,7 +32,7 @@ public class HighlightingPathway : MonoBehaviour
         if(isFinding)
         {
             time+=Time.deltaTime;
-            Debug.Log("Time = "+time);
+            // Debug.Log("Time = "+time);
             if(time>=15f)
             {
                 lineRenderer.enabled = false;

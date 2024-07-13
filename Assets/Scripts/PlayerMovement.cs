@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Am i walking on Ground = "+walkOnGround);
+        // Debug.Log("Am i walking on Ground = "+walkOnGround);
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
