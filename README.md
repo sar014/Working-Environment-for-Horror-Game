@@ -14,4 +14,9 @@ The enemy programming is done using Behavior Tree concepts.
 
 The game is inspired by Alan Wake and Outlast 
 
+How To Play:
+1. Used WASD keys for movement
+2. Press F to switch on flashlight
+3. Use Key E to open doors
+
 Do check it out !!!
