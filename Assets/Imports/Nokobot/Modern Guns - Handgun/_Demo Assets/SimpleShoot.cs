@@ -29,6 +29,8 @@ public class SimpleShoot : MonoBehaviour
 
     [Tooltip("Accessing weapon holder game object")] [SerializeField] public GameObject weaponholder;
 
+    public AudioSource gunSound;
+
     void Start()
     {
         //Disabling shooting animation.Would be enabled via PropToPickUp script
@@ -57,6 +59,7 @@ public class SimpleShoot : MonoBehaviour
         {
             //Calls animation on the gun that has the relevant animation events that will fire
             gunAnimator.SetTrigger("Fire");
+            gunSound.Play();
         }
     }
 

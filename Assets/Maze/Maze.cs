@@ -131,6 +131,10 @@ public class Maze : MonoBehaviour
                     {
                         manager.InstantiatingWaypoints(x,z);
                     }
+                    else if(Random.Range(0,100)<10)
+                    {
+                        manager.InstantiateWeapons(x,z);
+                    }
    
                 }
                 

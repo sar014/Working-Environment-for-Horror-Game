@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PropToPickUp : MonoBehaviour
 {
@@ -18,6 +20,11 @@ public class PropToPickUp : MonoBehaviour
         GameObject fpsGameObject = GameObject.Find("FirstPersonPlayer");
         Transform cameraTransform = fpsGameObject.transform.Find("Main Camera");
         Parent = cameraTransform.Find("WeaponHolder")?.gameObject;
+
+        //Attaching the FadeOut Text animation to the animator component
+        GameObject gunCanvas = GameObject.Find("GunCanvas");
+        TextMeshProUGUI text = gunCanvas.GetComponentInChildren<TextMeshProUGUI>();
+        animator = text.GetComponent<Animator>();
     }
     
     void OnTriggerEnter(Collider other) 
@@ -56,7 +63,7 @@ public class PropToPickUp : MonoBehaviour
 
         //Setting the weapon a child of weapon holder and setting its transform values
         weapon.transform.SetParent(Parent.transform);
-        Destroy(weapon.GetComponent<BoxCollider>());//Preventing the weapon to interact with the reach component when it swings
+        // Destroy(weapon.GetComponent<BoxCollider>());//Preventing the weapon to interact with the reach component when it swings
         weapon.transform.SetLocalPositionAndRotation(new Vector3(0.0769999921f,-0.230000019f,0.439999998f), new Quaternion(0,0,0,0));
         weapon.transform.localScale = new Vector3(1,1,1);
 
@@ -79,7 +86,7 @@ public class PropToPickUp : MonoBehaviour
         if(Input.GetButtonDown("Submit"))
         {
             this.gameObject.transform.parent = null;
-            this.gameObject.transform.localPosition = new Vector3(this.transform.localPosition.x,0,this.transform.localPosition.z);
+            this.gameObject.transform.localPosition = new Vector3(this.transform.localPosition.x+5,0,this.transform.localPosition.z); //Adding 5 units so that the weapon falls a few units away
             this.gameObject.transform.localRotation = Quaternion.Euler(0,0,90);
             this.AddComponent<BoxCollider>();
             // Destroy(this.gameObject);

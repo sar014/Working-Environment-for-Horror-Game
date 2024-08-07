@@ -6,14 +6,15 @@ using UnityEngine.AI;
 
 public class SpawnManager : MonoBehaviour
 {
-
     int mazeAreaMask;
     public Recursive obj;
+    public GameObject WeaponPrefab;
     public GameObject enemyPrefab;
     public GameObject WayPointPrefab;
     public Transform mazeParent;
     public Transform enemyCollection;
     public List<Vector3> waypointsList;
+    public List<Vector3> weaponPosList;
 
 
 
@@ -73,7 +74,6 @@ public class SpawnManager : MonoBehaviour
         if (obj.map[i, j] == 0)
         {
             {
-                
                 // Calculate the position for the enemy based on coordinates and obj.scale
                 Vector3 WayPointPosition = new Vector3(i * obj.scale, 0, j * obj.scale);
 
@@ -89,8 +89,26 @@ public class SpawnManager : MonoBehaviour
                     WayPointPrefab.transform.position = hit.position;
                     waypointsList.Add(WayPointPosition);
                 }
+            }
+        }
+    }
 
-                
+    public void InstantiateWeapons(int i, int j)
+    {
+        if (obj.map[i, j] == 0) 
+        {
+            Vector3 weaponPosition = new Vector3(i * obj.scale, 2, j * obj.scale);
+
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(weaponPosition, out hit, 5f, NavMesh.AllAreas))
+            {
+                GameObject weaponInstance = Instantiate(WeaponPrefab, weaponPosition, Quaternion.identity, mazeParent.transform);
+                weaponInstance.transform.position = hit.position;
+                weaponPosList.Add(weaponPosition);
+            }
+            else
+            {
+                Debug.Log($"NavMesh.SamplePosition failed for position: {weaponPosition}");
             }
         }
     }
